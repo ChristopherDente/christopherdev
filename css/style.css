@@ -286,9 +286,8 @@ main {
   border-color: var(--primary-color);
   color: var(--primary-color);
   transform: translateY(-2px);
-}
 
-/* Responsive Overrides */
+
 @media (max-width: 767.98px) {
   .display-4 {
     font-size: 2.5rem;
@@ -299,4 +298,67 @@ main {
   .hero-title {
     font-size: 2.2rem;
   }
+}
+
+@media (min-width: 768px) {
+  .w-md-auto {
+    width: auto !important;
+  }
+}
+
+/* Premium Button Enhancements */
+.btn-primary {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4);
+}
+.btn-outline-primary {
+  transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.2);
+}
+
+/* Float Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Premium UI Enhancements */
+.premium-card {
+  border-bottom: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+.premium-card:hover {
+  border-bottom: 4px solid var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05) !important;
+}
+
+/* Form Styles */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: var(--light-bg);
+}
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+  background-color: #fff;
+}
+.form-label {
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
 }

@@ -16,13 +16,26 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-97JKKLDVCZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-97JKKLDVCZ');
+    </script>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">ChristopherDev</a>
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="https://github.com/ChristopherDente.png" alt="ChristopherDev Logo" width="36" height="36" class="rounded-circle shadow-sm border border-primary border-2">
+                ChristopherDev
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,13 +68,25 @@
                 <!-- Mission & Vision -->
                 <div class="row g-4 mb-5 text-center">
                     <div class="col-md-6">
-                        <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 h-100 hover-scale">
+                        <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 h-100 premium-card">
+                            <div class="icon-box mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-rocket-takeoff" viewBox="0 0 16 16">
+                                    <path d="M9.752 6.193c.599.6 1.73.437 2.528-.362s.96-1.932.362-2.531c-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532Z"/>
+                                    <path d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.071v.488a1.5 1.5 0 0 1-.266.86l-3.269 4.639c-.228.323-.552.413-.884.237-.35-.186-.484-.556-.37-1.12l.534-2.673a1.5 1.5 0 0 0-.184-1.134l-.872-1.455-.873 1.455a1.5 1.5 0 0 0-.184 1.134l.534 2.673c.114.564-.02.934-.37 1.12-.332.176-.656.086-.884-.237L1.932 9.84a1.5 1.5 0 0 1-.266-.86v-.488C.159 6.046-.575 3.955.337 2.42c.86-1.445 2.76-2.124 5.37-2.3 2.607-.175 4.507.504 5.367 1.949Z"/>
+                                </svg>
+                            </div>
                             <h3 class="h6 fw-bold mb-3 text-primary text-uppercase" style="letter-spacing: 1px;">Our Mission</h3>
                             <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.7;">To build and share practical software solutions, turning complex theoretical concepts into accessible, open-source demonstrations that help others learn.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 h-100 hover-scale">
+                        <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 h-100 premium-card">
+                            <div class="icon-box mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                </svg>
+                            </div>
                             <h3 class="h6 fw-bold mb-3 text-primary text-uppercase" style="letter-spacing: 1px;">Our Vision</h3>
                             <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.7;">To foster a community of builders who learn by doing, where experimental code and transparent problem-solving drive continuous innovation.</p>
                         </div>
@@ -69,13 +94,22 @@
                 </div>
 
                 <!-- Purpose -->
-                <div class="mb-5 mt-5 pt-4 text-center px-4">
-                    <h2 class="fw-bold mb-4 text-primary">The Purpose</h2>
-                    <p class="lead text-muted mb-4">ChristopherDev is a personal developer platform where I share my practical experiments, focusing on computer vision and real-time systems.</p>
-                    <p class="text-muted">The core philosophy here is simple: the best way to learn software engineering is by building real things. Instead of keeping my code hidden away, I decided to build a platform to share it.</p>
+                <div class="row align-items-center mb-5 mt-5 pt-4">
+                    <div class="col-md-5 text-center mb-4 mb-md-0">
+                        <div class="icon-box" style="width: 100px; height: 100px; background-color: rgba(30, 64, 175, 0.05); color: var(--primary-color);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                                <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="col-md-7 px-4">
+                        <h2 class="fw-bold mb-4 text-primary">The Purpose</h2>
+                        <p class="lead text-muted mb-4">ChristopherDev is a personal developer platform where I share my practical experiments, focusing on computer vision and real-time systems.</p>
+                        <p class="text-muted mb-0">The core philosophy here is simple: the best way to learn software engineering is by building real things. Instead of keeping my code hidden away, I decided to build a platform to share it.</p>
+                    </div>
                 </div>
                 <div class="text-center mt-5 pt-4">
-                    <a href="index.html" class="btn btn-primary btn-lg rounded-pill px-4 px-md-5 hover-scale shadow-sm w-100 d-md-inline-block" style="max-width: 100%;">Explore Projects</a>
+                    <a href="index.html" class="btn btn-primary btn-lg rounded-pill px-4 px-md-5 hover-scale shadow-sm w-100 w-md-auto d-md-inline-block" style="max-width: 100%;">Explore Projects</a>
                 </div>
             </div>
         </section>

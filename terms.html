@@ -16,13 +16,26 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-97JKKLDVCZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-97JKKLDVCZ');
+    </script>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">ChristopherDev</a>
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="https://github.com/ChristopherDente.png" alt="ChristopherDev Logo" width="36" height="36" class="rounded-circle shadow-sm border border-primary border-2">
+                ChristopherDev
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -45,13 +58,19 @@
     <main class="overflow-hidden">
         <header class="py-5">
             <div class="container text-center py-4 mt-4 animate-fade-up">
+                <div class="icon-box mb-4 mx-auto" style="width: 60px; height: 60px; background-color: rgba(30, 64, 175, 0.05); color: var(--primary-color);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                        <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2.5a1 1 0 0 0 1 1H13v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                    </svg>
+                </div>
                 <h1 class="display-5 fw-bold mb-3 text-primary" style="letter-spacing: -1px;">Terms & Conditions</h1>
                 <p class="lead text-muted max-w-75 mx-auto">Last updated: September 2026</p>
             </div>
         </header>
 
         <section class="py-3 py-md-5 mb-5">
-            <div class="container mx-auto article-content bg-white p-4 p-md-5 border rounded-4 shadow-sm" style="max-width: 800px;">
+            <div class="container mx-auto article-content bg-white p-4 p-md-5 border rounded-4 shadow-sm premium-card" style="max-width: 800px;">
                 <p>Welcome to ChristopherDev. By accessing this website, you agree to comply with and be bound by the following terms and conditions.</p>
 
                 <h2>1. Website Usage</h2>
