@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Messaging Platform Tutorial | ChristopherDev</title>
+    <meta name="description" content="Tutorial and setup guide for the open-source Real-Time Messaging Platform project using HTML, CSS, and JS.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-97JKKLDVCZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-97JKKLDVCZ');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2298883857288950"
+        crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="assets/images/logo.png" alt="ChristopherDev Logo" width="36" height="36"
+                    class="rounded-circle shadow-sm border border-primary border-2">
+                ChristopherDev
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
+                    <li class="nav-item"><a class="nav-link" href="articles.html">Articles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="overflow-hidden">
+        <header class="py-5">
+            <div class="container text-center py-4 mt-4 animate-fade-up">
+                <span
+                    class="badge border border-primary text-primary bg-white px-3 py-2 rounded-pill mb-4 text-uppercase tracking-wider">Free
+                    Project</span>
+                <h1 class="display-5 fw-bold mb-3 text-primary" style="letter-spacing: -1px;">Real-Time Messaging Platform</h1>
+                <p class="lead text-muted max-w-75 mx-auto">Setup Guide & Tutorial</p>
+            </div>
+        </header>
+
+        <section class="mb-5 pb-5">
+            <div class="container animate-fade-up delay-100" style="max-width: 900px;">
+                <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
+                    <h2 class="fw-bold mb-4 text-primary">Step 1: Download the Source Code</h2>
+                    <p class="text-muted mb-4">To get started, you will need to download the project files from GitHub.
+                    </p>
+                    <ol class="text-muted mb-4">
+                        <li class="mb-2">Open this repository: <br class="d-md-none"><a
+                                href="#" target="_blank"
+                                class="fw-bold text-break">ChristopherDente/chatting-system</a></li>
+                        <li class="mb-2">Click the green <strong>"Code"</strong> button.</li>
+                        <li class="mb-2">Select <strong>"Download ZIP"</strong> and extract the files to your computer.
+                        </li>
+                    </ol>
+                    <a href="#" target="_blank"
+                        class="btn btn-primary rounded-pill px-4 hover-scale">Go to GitHub Repository</a>
+                </div>
+
+                <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
+                    <h2 class="fw-bold mb-4 text-primary">System Capabilities & Features</h2>
+                    <p class="text-muted mb-3">This messaging platform goes beyond simple WebSockets to deliver a production-ready communication experience:</p>
+
+                    <h4 class="fw-bold mt-4 mb-2">1. Low-Latency Real-time Messaging</h4>
+                    <p class="text-muted" style="line-height: 1.8;">By leveraging the WebSocket protocol (WSS), the application maintains a persistent, bi-directional connection between the client and server. This drastically reduces overhead compared to HTTP polling, allowing users to send and receive messages instantly. The UI handles asynchronous updates flawlessly, ensuring no dropped messages during high traffic.</p>
+
+                    <h4 class="fw-bold mt-4 mb-2">2. Secure User Authentication</h4>
+                    <p class="text-muted" style="line-height: 1.8;">Security is paramount. The platform uses JSON Web Tokens (JWT) for stateless authentication. Upon successful login, the client receives an encrypted token stored securely in HttpOnly cookies, which is then passed alongside the WebSocket handshake to verify the user's identity before any data is transmitted.</p>
+                    
+                    <h4 class="fw-bold mt-4 mb-2">3. End-to-End Encryption Architecture (Concept)</h4>
+                    <p class="text-muted" style="line-height: 1.8;">While this open-source version serves as a foundation, the architecture is designed to support the Signal Protocol. Currently, messages are secured in transit via TLS, but the frontend state management allows easy integration of client-side encryption libraries to ensure the server never reads the plain text.</p>
+                </div>
+
+                <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
+                    <h2 class="fw-bold mb-4 text-primary">Setup Guide</h2>
+
+                    <h4 class="fw-bold mt-4 mb-3">1. Run the Application</h4>
+                    <p class="text-muted mb-3">Follow these instructions to start the chat system locally.</p>
+                    <ol class="text-muted mb-4">
+                        <li class="mb-3"><strong>Open a terminal in the project folder</strong>.</li>
+                        <li class="mb-3">
+                            <strong>Start a simple HTTP server:</strong>
+                            <pre class="bg-light p-3 rounded mt-2 border"><code>python3 -m http.server 3000</code></pre>
+                        </li>
+                        <li class="mb-3">Open your web browser and navigate to: <strong>http://localhost:3000</strong>
+                        </li>
+                    </ol>
+
+                    <h4 class="fw-bold mt-5 mb-3">2. Usage</h4>
+                    <ol class="text-muted mb-0">
+                        <li class="mb-2">Open the application in multiple browser tabs to simulate multiple users.</li>
+                        <li class="mb-2">Start sending messages and see them arrive in real time!</li>
+                    </ol>
+
+                    <div class="mt-5 text-center p-4 bg-light rounded-4 border">
+                        <h4 class="fw-bold text-primary mb-2">🎉 Enjoy and Learn!</h4>
+                        <p class="text-muted mb-0">I hope you have fun building, breaking, and learning from this
+                            project. Keep experimenting!</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
+                    <h2 class="fw-bold mb-4 text-primary">Frequently Asked Questions (FAQ)</h2>
+                    
+                    <h4 class="fw-bold mt-4 mb-2">How scalable is the WebSocket implementation?</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">The backend is designed to handle thousands of concurrent connections. By using asynchronous event loops (e.g., Python's asyncio or Node.js's cluster module), the server distributes the connection load. For enterprise scaling, you can integrate a Redis Pub/Sub backplane to synchronize messages across multiple server instances.</p>
+                    
+                    <h4 class="fw-bold mt-4 mb-2">Can I integrate this into an existing web app?</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">Yes! The frontend is built using standard, framework-agnostic HTML, CSS, and Vanilla JavaScript. The core messaging logic is abstracted into a standalone JS class that you can easily drop into a React, Vue, or Angular application without conflicting with existing code.</p>
+                    
+                    <h4 class="fw-bold mt-4 mb-2">How do you handle dropped connections?</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">The frontend implements an exponential backoff reconnection strategy. If a user's internet drops, the client will attempt to reconnect after 1 second, then 2 seconds, 4 seconds, etc., up to a maximum cap. Once reconnected, it queries the backend for any missed message payloads.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">ChristopherDev</h4>
+                    <p class="text-muted mb-4">Projects, Tools & Developer Resources.<br>Built, Shared, Learned.</p>
+                    
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Explore</h5>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="tools.html" class="footer-link">Tools</a>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-3">Learn</h5>
+                    <a href="about.html" class="footer-link">About</a>
+                    <a href="articles.html" class="footer-link">Articles</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="mb-3">Legal</h5>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="terms.html" class="footer-link">Terms & Conditions</a>
+                </div>
+            </div>
+            <div class="row mt-5 pt-4 border-top">
+                <div class="col-12 text-center text-muted">
+                    <small>&copy; 2026 ChristopherDev. All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
