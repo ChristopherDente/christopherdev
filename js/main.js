@@ -338,35 +338,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     const displaySize = { width: webcam.clientWidth, height: webcam.clientHeight };
                     faceapi.matchDimensions(overlay, displaySize);
 
-                    // Detection loop
-                    detectionInterval = setInterval(async () => {
-                        if (webcam.paused || webcam.ended) return;
-                        const detections = await faceapi.detectAllFaces(webcam, new faceapi.TinyFaceDetectorOptions()).withAgeAndGender();
-                        const resizedDetections = faceapi.resizeResults(detections, displaySize);
+                    isDetecting = true;
+                    
+                    // Asynchronous Detection loop (prevents lag from promise stacking)
+                    async function detectLoop() {
+                        if (!isDetecting || webcam.paused || webcam.ended) return;
                         
-                        const ctx = overlay.getContext('2d');
-                        ctx.clearRect(0, 0, overlay.width, overlay.height);
-                        
-                        // Draw custom boxes for a cool UI effect
-                        resizedDetections.forEach(det => {
-                            const box = det.detection.box;
-                            const age = Math.round(det.age);
-                            const gender = det.gender;
-                            const prob = Math.round(det.genderProbability * 100);
-
-                            ctx.strokeStyle = '#0d6efd'; // Bootstrap Primary
-                            ctx.lineWidth = 3;
-                            ctx.strokeRect(box.x, box.y, box.width, box.height);
+                        try {
+                            const detections = await faceapi.detectAllFaces(webcam, new faceapi.TinyFaceDetectorOptions()).withAgeAndGender();
+                            const resizedDetections = faceapi.resizeResults(detections, displaySize);
                             
-                            // Draw label
-                            ctx.fillStyle = '#0d6efd';
-                            ctx.fillRect(box.x, box.y - 45, box.width, 45);
-                            ctx.fillStyle = '#ffffff';
-                            ctx.font = '14px monospace';
-                            ctx.fillText(`Face Detected`, box.x + 5, box.y - 28);
-                            ctx.fillText(`${gender} (${prob}%) | ~${age}y/o`, box.x + 5, box.y - 8);
-                        });
-                    }, 100);
+                            const ctx = overlay.getContext('2d');
+                            ctx.clearRect(0, 0, overlay.width, overlay.height);
+                            
+                            // Draw custom boxes for a cool UI effect
+                            resizedDetections.forEach(det => {
+                                const box = det.detection.box;
+                                const age = Math.round(det.age);
+                                const gender = det.gender;
+                                const prob = Math.round(det.genderProbability * 100);
+
+                                ctx.strokeStyle = '#0d6efd'; // Bootstrap Primary
+                                ctx.lineWidth = 3;
+                                ctx.strokeRect(box.x, box.y, box.width, box.height);
+                                
+                                // Draw label
+                                ctx.fillStyle = '#0d6efd';
+                                ctx.fillRect(box.x, box.y - 45, box.width, 45);
+                                ctx.fillStyle = '#ffffff';
+                                ctx.font = '14px monospace';
+                                ctx.fillText(`Face Detected`, box.x + 5, box.y - 28);
+                                ctx.fillText(`${gender} (${prob}%) | ~${age}y/o`, box.x + 5, box.y - 8);
+                            });
+                        } catch (err) {
+                            console.error("Detection error:", err);
+                        }
+                        
+                        // Wait for the previous frame to finish processing before scheduling the next one
+                        setTimeout(detectLoop, 100);
+                    }
+                    
+                    // Start the loop
+                    detectLoop();
                 });
             } catch (err) {
                 console.error(err);
@@ -381,7 +394,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (localStream) {
                     localStream.getTracks().forEach(track => track.stop());
                 }
-                clearInterval(detectionInterval);
+                
+                isDetecting = false; // Stop the loop
+                
                 const ctx = overlay.getContext('2d');
                 ctx.clearRect(0, 0, overlay.width, overlay.height);
                 
