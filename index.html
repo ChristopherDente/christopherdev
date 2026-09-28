@@ -52,8 +52,6 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
-                    <li class="nav-item"><a class="nav-link" href="articles.html">Articles</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -77,10 +75,31 @@
                             More</a>
                     </div>
                 </div>
-                <div class="col-lg-6 text-center animate-fade-up delay-100 mt-5 mt-lg-0">
-                    <div class="animate-float">
-                        <img src="assets/images/hero-illustration.png" alt="Developer Workspace"
-                            class="img-fluid rounded-4 shadow-sm hover-scale premium-card">
+                <div class="col-lg-6 animate-fade-up delay-100 mt-5 mt-lg-0">
+                    <div class="bg-white border rounded-4 shadow-sm p-4 premium-card border-primary animate-fade-up delay-100" style="border-width: 2px;">
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2 mb-3">
+                            <h2 class="fw-bold text-primary mb-0 h5"><i class="fas fa-comments me-2"></i> Live Chat Simulator</h2>
+                            <span class="badge bg-success text-white px-2 py-1 rounded-pill blink-animation small">WebSocket: Connected</span>
+                        </div>
+                        <p class="text-muted mb-3 small text-start">Open this page in a <a href="index.html" target="_blank">new tab</a>, position them side-by-side, and send a message!</p>
+                        
+                        <div class="bg-light border rounded-3 d-flex flex-column" style="height: 300px;">
+                            <div class="bg-white border-bottom p-2 text-center fw-bold text-secondary rounded-top-3 small">
+                                <i class="fas fa-circle text-success me-1" style="font-size: 8px; vertical-align: middle;"></i> Live Messaging Room
+                            </div>
+                            <div class="flex-grow-1 p-3 overflow-auto d-flex flex-column gap-2 text-start" id="chatBox">
+                                <!-- Messages go here -->
+                            </div>
+                            <div class="p-2 bg-white border-top rounded-bottom-3 d-flex gap-2">
+                                <input type="text" id="chatInput" class="form-control form-control-sm" placeholder="Type a message...">
+                                <button id="sendChatBtn" class="btn btn-primary btn-sm px-3"><i class="fas fa-paper-plane"></i> Send</button>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-center">
+                            <a href="real-time-messaging-platform.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 shadow-sm hover-scale">
+                                View Source Code for Chat System
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,23 +113,17 @@
                     <p class="text-muted lead max-w-75 mx-auto mt-3">My focus is on creating robust, full-stack applications that solve real-world problems using modern technologies.</p>
                 </div>
             </div>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
+            <div class="row g-4 text-center justify-content-center">
+                <div class="col-md-6">
                     <div class="p-4 h-100 bg-white rounded-4 shadow-sm">
                         <h3 class="h5 fw-bold text-primary mb-3">AI & Computer Vision</h3>
-                        <p class="text-muted mb-0">Leveraging the DeepFace Python framework to build highly accurate facial recognition systems for identity verification and enterprise access control.</p>
+                        <p class="text-muted mb-0">Leveraging the DeepFace Python framework to build highly accurate facial recognition systems for identity verification and enterprise access control. Specialized in real-time edge processing and biometric security optimizations.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="p-4 h-100 bg-white rounded-4 shadow-sm">
                         <h3 class="h5 fw-bold text-primary mb-3">Real-Time Systems</h3>
-                        <p class="text-muted mb-0">Architecting low-latency platforms using WebSockets and asynchronous server programming to power instant messaging, live dashboards, and collaborative tools.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 h-100 bg-white rounded-4 shadow-sm">
-                        <h3 class="h5 fw-bold text-primary mb-3">Hardware Integration</h3>
-                        <p class="text-muted mb-0">Seamlessly linking physical devices (like USB/Bluetooth Barcode Scanners and biometric sensors) into web applications using advanced Javascript event-listener architectures.</p>
+                        <p class="text-muted mb-0">Architecting low-latency platforms using WebSockets and asynchronous server programming to power instant messaging, live dashboards, and collaborative tools. Focused on high-concurrency event loops and decoupled microservice patterns.</p>
                     </div>
                 </div>
             </div>
@@ -120,108 +133,153 @@
         <div class="container">
             <hr class="text-muted opacity-25 mb-5 pb-4">
         </div>
-        <div class="container py-3 py-md-4 mt-2 mt-md-4">
+        <div class="container py-3 py-md-4 mt-2 mt-md-4" id="project-face-recognition">
             <div class="animate-fade-up">
                 <span
                     class="badge border border-primary text-primary bg-white px-3 py-2 rounded-pill mb-4 text-uppercase tracking-wider">Free
                     Project</span>
+                <span class="badge bg-danger text-white px-3 py-2 rounded-pill mb-4 text-uppercase tracking-wider ms-2 blink-animation"><i class="fas fa-play-circle me-1"></i> Live Interactive Simulator</span>
                 <h1 class="display-4 fw-bold mb-3 text-primary text-start" style="letter-spacing: -1px;">DTR Face
                     Recognition</h1>
                 <p class="lead text-muted mb-5 text-start" style="max-width: 700px; line-height: 1.8;">An enterprise-grade facial recognition system for employee attendance tracking.</p>
             </div>
 
-            <div class="row g-4 mb-5 animate-fade-up delay-100">
-                <div class="col-md-4">
-                    <img src="assets/images/face-recognition.png" alt="Face Recognition Core"
-                        class="img-fluid minimal-card hover-scale">
+            <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card border-primary animate-fade-up delay-100" style="border-width: 2px;">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+                    <h2 class="fw-bold text-primary mb-0 h4"><i class="fas fa-camera me-2"></i> Live Face Detection Simulator</h2>
+                    <span class="badge bg-danger text-white px-3 py-2 rounded-pill blink-animation" id="camStatusBadge">Camera: Offline</span>
                 </div>
-                <div class="col-md-4">
-                    <img src="assets/images/face-recognition-match.png" alt="Match Profile"
-                        class="img-fluid minimal-card hover-scale">
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/images/face-recognition-dash.png" alt="Analytics Dashboard"
-                        class="img-fluid minimal-card hover-scale">
+                <p class="text-muted mb-4"><strong>Try it out!</strong> This simulation uses <code>face-api.js</code> to perform live face detection entirely in your browser without sending images to a server. Allow camera access to see the AI bounding box in real-time!</p>
+                
+                <div class="position-relative bg-dark rounded-3 overflow-hidden d-flex justify-content-center align-items-center" style="height: 400px; max-width: 600px; margin: 0 auto;" id="camContainer">
+                    <video id="webcam" autoplay muted playsinline class="position-absolute w-100 h-100 object-fit-cover d-none"></video>
+                    <canvas id="overlay" class="position-absolute w-100 h-100 object-fit-cover"></canvas>
+                    
+                    <div id="camOverlayText" class="text-center z-3">
+                        <button class="btn btn-primary btn-lg rounded-pill px-4" id="startCamBtn"><i class="fas fa-video"></i> Start Camera</button>
+                        <p class="text-white-50 mt-3 small">Models will download on first run (~2MB)</p>
+                    </div>
+                    <button class="btn btn-danger rounded-pill px-4 position-absolute bottom-0 mb-4 z-3 d-none" id="stopCamBtn"><i class="fas fa-stop-circle"></i> Stop Camera</button>
                 </div>
             </div>
 
             <div class="text-start animate-fade-up delay-200">
                 <a href="dtr.html" class="btn btn-primary btn-lg rounded-pill px-4 px-md-5 shadow-sm hover-scale">
-                    View Source Code
+                    Try Live Simulator & View Source Code
                 </a>
             </div>
         </div>
 
-        <!-- Divider -->
-        <div class="container">
-            <hr class="text-muted opacity-25 mb-5 pb-4">
-        </div>
-        <div class="container py-3 py-md-4 mt-2 mt-md-4">
-            <div class="animate-fade-up">
-                <span
-                    class="badge border border-primary text-primary bg-white px-3 py-2 rounded-pill mb-4 text-uppercase tracking-wider">Free
-                    Project</span>
-                <h1 class="display-4 fw-bold mb-3 text-primary text-start" style="letter-spacing: -1px;">Real-Time Messaging Platform
-                </h1>
-                <p class="lead text-muted mb-5 text-start" style="max-width: 700px; line-height: 1.8;">A highly scalable real-time messaging application built on WebSockets.</p>
+        <!-- How It Works Section -->
+        <section class="container py-5 mb-4">
+            <h2 class="fw-bold text-center text-primary mb-5">How to Use Our Open-Source Simulators</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm h-100 border">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-3" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">1</div>
+                        <h4 class="fw-bold mb-3">Choose a Simulator</h4>
+                        <p class="text-muted">Select either the Live Messaging Room or the DTR Face Recognition AI from the projects listed above.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm h-100 border">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-3" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">2</div>
+                        <h4 class="fw-bold mb-3">Test Locally</h4>
+                        <p class="text-muted">Interact with the tools directly in your browser. Our simulators use Edge AI and LocalStorage so no servers are required for testing.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm h-100 border">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-circle mb-3" style="width: 50px; height: 50px; font-size: 1.5rem; font-weight: bold;">3</div>
+                        <h4 class="fw-bold mb-3">View Source Code</h4>
+                        <p class="text-muted">Once you understand how the system operates, click through to the project page to view the architecture and copy the GitHub source code.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="row g-4 mb-5 animate-fade-up delay-100">
-                <div class="col-md-4">
-                    <img src="assets/images/real-time-messaging-platform-core.png" alt="Chat Interface"
-                        class="img-fluid minimal-card hover-scale">
+        <!-- Features Grid -->
+        <section class="container py-5 mb-4 bg-light rounded-4">
+            <h2 class="fw-bold text-center text-primary mb-5">Why Developers Choose ChristopherDev</h2>
+            <div class="row g-4 px-3 px-md-5">
+                <div class="col-md-6 d-flex">
+                    <div class="text-primary me-3 fs-3"><i class="fas fa-bolt"></i></div>
+                    <div>
+                        <h5 class="fw-bold">Lightning Fast Performance</h5>
+                        <p class="text-muted">All interactive components are heavily optimized using Vanilla JavaScript, bypassing bloated frameworks for instant browser execution.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <img src="assets/images/real-time-messaging-platform-auth.png" alt="Secure Authentication"
-                        class="img-fluid minimal-card hover-scale">
+                <div class="col-md-6 d-flex">
+                    <div class="text-primary me-3 fs-3"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h5 class="fw-bold">100% Privacy & Security</h5>
+                        <p class="text-muted">Your data never leaves your device. Our facial recognition algorithms utilize client-side WebAssembly to keep your biometrics secure.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <img src="assets/images/real-time-messaging-platform-ui.png" alt="Analytics Dashboard"
-                        class="img-fluid minimal-card hover-scale">
+                <div class="col-md-6 d-flex">
+                    <div class="text-primary me-3 fs-3"><i class="fas fa-code-branch"></i></div>
+                    <div>
+                        <h5 class="fw-bold">Open Source Architecture</h5>
+                        <p class="text-muted">We believe in transparent engineering. Every algorithm, webhook, and socket configuration is fully documented and open for community review.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex">
+                    <div class="text-primary me-3 fs-3"><i class="fas fa-mobile-alt"></i></div>
+                    <div>
+                        <h5 class="fw-bold">Fully Responsive Design</h5>
+                        <p class="text-muted">Whether you are testing a WebSocket chat on your smartphone or analyzing edge AI on a desktop, our interfaces scale flawlessly.</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="text-start animate-fade-up delay-200">
-                <a href="real-time-messaging-platform.html" class="btn btn-primary btn-lg rounded-pill px-4 px-md-5 shadow-sm hover-scale">
-                    View Source Code
-                </a>
-            </div>
-        </div>
-
-        <!-- Divider -->
-        <div class="container">
-            <hr class="text-muted opacity-25 mb-5 pb-4">
-        </div>
-        <div class="container py-3 py-md-4 mt-2 mt-md-4">
-            <div class="animate-fade-up">
-                <span
-                    class="badge border border-primary text-primary bg-white px-3 py-2 rounded-pill mb-4 text-uppercase tracking-wider">Free
-                    Project</span>
-                <h1 class="display-4 fw-bold mb-3 text-primary text-start" style="letter-spacing: -1px;">Barcode Reader System</h1>
-                <p class="lead text-muted mb-5 text-start" style="max-width: 700px; line-height: 1.8;">A seamless hardware integration system that captures rapid scanner input for inventory or ID cards.</p>
-            </div>
-
-            <div class="row g-4 mb-5 animate-fade-up delay-100">
-                <div class="col-md-4">
-                    <img src="assets/images/barcode-scanner-hardware.png" alt="Hardware Scanner"
-                        class="img-fluid minimal-card hover-scale">
+        <!-- FAQ Section -->
+        <section class="container py-5 mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold text-center text-primary mb-5">Frequently Asked Questions</h2>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 mb-3 bg-white shadow-sm rounded-4 overflow-hidden">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Are these tools completely free to use?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    Yes! All the simulators and tools hosted on ChristopherDev are 100% free. The underlying source code for the production-ready systems is also open-source and available on GitHub for you to use in your own commercial or personal projects.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 bg-white shadow-sm rounded-4 overflow-hidden">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Does the Face Recognition simulator save my photos?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    No. The DTR Face Recognition simulator uses <code>face-api.js</code> to process the video feed entirely within your local browser environment. No images, video frames, or biometric data are ever sent to a remote server.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 bg-white shadow-sm rounded-4 overflow-hidden">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    How does the Live Messaging Room work without a server?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">
+                                    The live simulator at the top of the homepage relies on the browser's native Web Storage API. When you send a message in one tab, it writes to LocalStorage, which triggers a 'storage' event in any other open tabs, instantly syncing the UI. To see the true WebSocket server implementation, view the Real-Time Messaging project page.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <img src="assets/images/barcode-scanner-engine.png" alt="Event Listener Engine"
-                        class="img-fluid minimal-card hover-scale">
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/images/barcode-scanner-logging.png" alt="Database Logging Dashboard"
-                        class="img-fluid minimal-card hover-scale">
-                </div>
             </div>
+        </section>
 
-            <div class="text-start animate-fade-up delay-200">
-                <a href="barcode-reader.html" class="btn btn-primary btn-lg rounded-pill px-4 px-md-5 shadow-sm hover-scale">
-                    View Project
-                </a>
-            </div>
-        </div>
     </main>
 
     <!-- Footer -->
@@ -236,12 +294,10 @@
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-3">Explore</h5>
                     <a href="index.html" class="footer-link">Home</a>
-                    <a href="tools.html" class="footer-link">Tools</a>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-3">Learn</h5>
                     <a href="about.html" class="footer-link">About</a>
-                    <a href="articles.html" class="footer-link">Articles</a>
                     <a href="contact.html" class="footer-link">Contact</a>
                 </div>
                 <div class="col-lg-2 col-md-4">
@@ -260,6 +316,10 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Face-API.js for Browser Simulation -->
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>

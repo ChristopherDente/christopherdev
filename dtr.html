@@ -52,8 +52,6 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tools.html">Tools</a></li>
-                    <li class="nav-item"><a class="nav-link" href="articles.html">Articles</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -73,9 +71,29 @@
 
         <section class="mb-5 pb-5">
             <div class="container animate-fade-up delay-100" style="max-width: 900px;">
+                <!-- Interactive Simulator -->
+                <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card border-primary" style="border-width: 2px;">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 mb-4">
+                        <h2 class="fw-bold text-primary mb-0 h4"><i class="fas fa-camera me-2"></i> Live Face Detection Simulator</h2>
+                        <span class="badge bg-danger text-white px-3 py-2 rounded-pill blink-animation" id="camStatusBadge">Camera: Offline</span>
+                    </div>
+                    <p class="text-muted mb-4"><strong>Try it out!</strong> This simulation uses <code>face-api.js</code> to perform live face detection entirely in your browser without sending images to a server. Allow camera access to see the AI bounding box in real-time!</p>
+                    
+                    <div class="position-relative bg-dark rounded-3 overflow-hidden d-flex justify-content-center align-items-center" style="height: 400px; max-width: 600px; margin: 0 auto;" id="camContainer">
+                        <video id="webcam" autoplay muted playsinline class="position-absolute w-100 h-100 object-fit-cover d-none"></video>
+                        <canvas id="overlay" class="position-absolute w-100 h-100 object-fit-cover"></canvas>
+                        
+                        <div id="camOverlayText" class="text-center z-3">
+                            <button class="btn btn-primary btn-lg rounded-pill px-4" id="startCamBtn"><i class="fas fa-video"></i> Start Camera</button>
+                            <p class="text-white-50 mt-3 small">Models will download on first run (~2MB)</p>
+                        </div>
+                        <button class="btn btn-danger rounded-pill px-4 position-absolute bottom-0 mb-4 z-3 d-none" id="stopCamBtn"><i class="fas fa-stop-circle"></i> Stop Camera</button>
+                    </div>
+                </div>
+
                 <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
                     <h2 class="fw-bold mb-4 text-primary">Step 1: Download the Source Code</h2>
-                    <p class="text-muted mb-4">To get started, you will need to download the project files from GitHub.
+                    <p class="text-muted mb-4">To get started with the full Python backend version, download the project files.
                     </p>
                     <ol class="text-muted mb-4">
                         <li class="mb-2">Open this repository: <br class="d-md-none"><a
@@ -179,8 +197,6 @@
                                 <li class="list-group-item bg-transparent px-0"><i class="text-primary me-2 fw-bold">✓</i> <strong>Backend:</strong> Python, FastAPI</li>
                                 <li class="list-group-item bg-transparent px-0"><i class="text-primary me-2 fw-bold">✓</i> <strong>Frontend:</strong> HTML5, CSS3, Vanilla Javascript</li>
                             </ul>
-                            <a href="article-computervision.html" class="btn btn-outline-primary rounded-pill me-2">Read Case Study</a>
-                            <a href="article-barcodes.html" class="btn btn-outline-secondary rounded-pill">Read Barcode Case Study</a>
                         </div>
                     </div>
 
@@ -192,16 +208,30 @@
                 </div>
                 
                 <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
-                    <h2 class="fw-bold mb-4 text-primary">Frequently Asked Questions (FAQ)</h2>
+                    <h2 class="fw-bold mb-4 text-primary">Advanced Architecture & Security Implementation</h2>
+                    
+                    <h4 class="fw-bold mt-4 mb-2">1. Vector Database Integration for Scalability</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">While the default version of the DTR system uses a flat CSV file for storing attendance and basic array comparisons for matching, enterprise-scale deployments require a more robust architecture. By integrating a specialized Vector Database (such as Milvus, Pinecone, or pgvector), the system can handle tens of thousands of registered faces and perform similarity searches in milliseconds. Vector databases index the high-dimensional numerical embeddings generated by DeepFace, allowing for approximate nearest neighbor (ANN) searches that are exponentially faster than linear scanning.</p>
+
+                    <h4 class="fw-bold mt-4 mb-2">2. Anti-Spoofing and Liveness Detection</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">One of the primary concerns with facial recognition systems is presentation attacks (e.g., holding up a photograph or playing a video on a smartphone to fool the camera). To mitigate this, we recommend implementing a Liveness Detection module in the frontend. This can be achieved by requiring the user to blink, smile, or turn their head slightly. Alternatively, advanced setups utilize depth-sensing cameras (like Intel RealSense or Apple FaceID) to capture 3D topographical data, rendering 2D photo spoofing completely ineffective.</p>
+
+                    <h4 class="fw-bold mt-4 mb-2">3. End-to-End Encryption and Data Privacy (GDPR Compliance)</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">Handling biometric data requires strict adherence to privacy laws like GDPR and CCPA. The DTR system is designed with privacy in mind. When a face is registered, the system extracts the mathematical embedding (a series of numbers) and discards the high-resolution raw image if configured to do so. These embeddings are then encrypted at rest using AES-256 encryption. Because mathematical embeddings are non-reversible (you cannot reconstruct a person's face from the numerical array), the risk associated with a database breach is drastically reduced. Furthermore, all data transmission between the frontend kiosk and the FastAPI backend must be secured using TLS 1.3 (HTTPS).</p>
+
+                    <h2 class="fw-bold mt-5 mb-4 text-primary border-top pt-5">Frequently Asked Questions (FAQ)</h2>
                     
                     <h4 class="fw-bold mt-4 mb-2">How accurate is the DeepFace framework?</h4>
-                    <p class="text-muted mb-4" style="line-height: 1.8;">DeepFace wraps several state-of-the-art models (like VGG-Face and Facenet) that achieve over 97% accuracy on standard benchmark datasets like Labeled Faces in the Wild (LFW). In a controlled office environment with adequate lighting, the system's accuracy is near-perfect.</p>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">DeepFace wraps several state-of-the-art models (like VGG-Face and Facenet) that achieve over 97% accuracy on standard benchmark datasets like Labeled Faces in the Wild (LFW). In a controlled office environment with adequate lighting, the system's accuracy is near-perfect, even handling variations in facial hair, glasses, or minor changes in pose.</p>
                     
                     <h4 class="fw-bold mt-4 mb-2">Can this system handle multiple faces at once?</h4>
-                    <p class="text-muted mb-4" style="line-height: 1.8;">Yes, DeepFace is capable of detecting multiple bounding boxes in a single frame. However, the DTR application logic is optimized to focus on the largest face in the frame (usually the person standing in front of the terminal) to prevent accidental clock-ins from bystanders walking in the background.</p>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">Yes, DeepFace is capable of detecting multiple bounding boxes in a single frame. However, the DTR application logic is deliberately optimized to focus on the largest face in the frame (usually the person standing in front of the terminal). This prevents accidental clock-ins from bystanders or colleagues walking in the background.</p>
                     
+                    <h4 class="fw-bold mt-4 mb-2">What happens if the backend server goes offline?</h4>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">The frontend is designed to handle network interruptions gracefully. If the FastAPI backend is unreachable, the system will display a localized error message and can optionally cache the captured image frame locally in the browser's IndexedDB. Once the connection is re-established, the cached frames can be processed sequentially to ensure no attendance records are lost.</p>
+
                     <h4 class="fw-bold mt-4 mb-2">Is the data stored securely?</h4>
-                    <p class="text-muted mb-4" style="line-height: 1.8;">Absolutely. While raw images are saved during registration for visual logging, the actual recognition engine compares mathematical embeddings (numerical arrays). These embeddings cannot be easily reverse-engineered into a human face, adding a layer of data privacy for your employees.</p>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">Absolutely. While raw images are saved during registration for visual logging, the actual recognition engine compares mathematical embeddings (numerical arrays). These embeddings cannot be easily reverse-engineered into a human face, adding a significant layer of data privacy for your employees.</p>
                 </div>
             </div>
         </section>
@@ -219,12 +249,10 @@
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-3">Explore</h5>
                     <a href="index.html" class="footer-link">Home</a>
-                    <a href="tools.html" class="footer-link">Tools</a>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-3">Learn</h5>
                     <a href="about.html" class="footer-link">About</a>
-                    <a href="articles.html" class="footer-link">Articles</a>
                     <a href="contact.html" class="footer-link">Contact</a>
                 </div>
                 <div class="col-lg-2 col-md-4">
@@ -243,6 +271,10 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Face-API.js for Browser Simulation -->
+    <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+    
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
