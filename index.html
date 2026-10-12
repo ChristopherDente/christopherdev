@@ -21,6 +21,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/ChristopherDente.png">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-97JKKLDVCZ"></script>
     <script>
@@ -67,8 +70,7 @@
                     <h1 class="display-3 fw-bold mb-4 text-primary" style="letter-spacing: -1.5px;">Welcome to
                         ChristopherDev</h1>
                     <p class="lead text-muted mb-5 mx-auto mx-lg-0" style="max-width: 600px; font-size: 1.25rem;">
-                        I built this website from the ground up to showcase my practical computer vision systems,
-                        open-source tools, and share my journey in software engineering. Take a look around!
+                        Hi, I'm Christopher, a full-stack developer specializing in real-time systems and computer vision applications. This website serves as a technical portfolio and resource hub where you can find my open-source projects, interactive tools, and detailed tutorials. My goal is to build highly performant, accessible applications and share the knowledge I've gained through hands-on software engineering. Dive into the projects below to see practical implementations of Edge AI and WebSocket architectures in action.
                     </p>
                     <div class="d-flex justify-content-center justify-content-lg-start gap-3">
                         <a href="about.html" class="btn btn-primary btn-lg rounded-pill px-4 px-md-5">Learn
@@ -94,6 +96,10 @@
                                 <input type="text" id="chatInput" class="form-control form-control-sm" placeholder="Type a message...">
                                 <button id="sendChatBtn" class="btn btn-primary btn-sm px-3"><i class="fas fa-paper-plane"></i> Send</button>
                             </div>
+                        </div>
+                        <div class="mt-4 text-start text-muted">
+                            <p>The real-time messaging platform demonstrates a highly responsive chat system using WebSocket technology and optimized frontend event loops. It allows multiple users to seamlessly connect to a centralized room and broadcast messages without the overhead of HTTP polling, ensuring instant delivery and synchronization.</p>
+                            <p>By leveraging an asynchronous architecture, the platform handles high concurrency efficiently while maintaining a lightweight footprint. Explore the full documentation and architecture to learn how to build your own scalable live communication tools. <a href="real-time-messaging-platform.html" class="text-primary fw-bold text-decoration-none">Read the Real-Time Messaging Platform Case Study</a></p>
                         </div>
                         <div class="mt-3 text-center">
                             <a href="real-time-messaging-platform.html" class="btn btn-outline-primary btn-sm rounded-pill px-3 shadow-sm hover-scale">
@@ -128,6 +134,51 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Latest Articles / Blog Section -->
+        <section class="container py-5 mb-5">
+            <div class="row mb-5 text-center">
+                <div class="col-12">
+                    <h2 class="fw-bold text-primary">Engineering Articles & Deep Dives</h2>
+                    <p class="text-muted lead mx-auto mt-3" style="max-width: 700px;">Explore comprehensive technical breakdowns of software architecture, algorithms, and infrastructure optimization strategies.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Article 1 -->
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 premium-card p-2">
+                        <div class="card-body">
+                            <span class="badge bg-primary text-white mb-3 px-3 py-2 rounded-pill">Computer Vision</span>
+                            <h3 class="h5 fw-bold card-title mb-3">Optimizing DeepFace for Edge Devices</h3>
+                            <p class="card-text text-muted mb-4" style="line-height: 1.7;">Running heavy convolutional neural networks in browser environments can throttle CPU resources. In this deep dive, we explore how to compile Python models into WebAssembly (Wasm) and utilize the client's GPU via WebGL to achieve a 400% performance boost in facial alignment tasks, ensuring smooth 60fps video feeds without compromising bounding box accuracy.</p>
+                            <a href="dtr.html" class="fw-bold text-decoration-none border-bottom border-primary pb-1">Read Full Analysis &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Article 2 -->
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 premium-card p-2">
+                        <div class="card-body">
+                            <span class="badge bg-primary text-white mb-3 px-3 py-2 rounded-pill">System Design</span>
+                            <h3 class="h5 fw-bold card-title mb-3">Scaling WebSockets with Redis Pub/Sub</h3>
+                            <p class="card-text text-muted mb-4" style="line-height: 1.7;">As your real-time chat application grows beyond 10,000 concurrent TCP connections, a single Node.js instance will face memory exhaustion. This article breaks down the Pub/Sub architectural pattern. By introducing a Redis backplane, we can decouple socket states from application memory, allowing for infinite horizontal scaling across Kubernetes clusters with zero message dropping.</p>
+                            <a href="real-time-messaging-platform.html" class="fw-bold text-decoration-none border-bottom border-primary pb-1">Read Full Analysis &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Article 3 -->
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 premium-card p-2">
+                        <div class="card-body">
+                            <span class="badge bg-primary text-white mb-3 px-3 py-2 rounded-pill">Data Privacy</span>
+                            <h3 class="h5 fw-bold card-title mb-3">GDPR Compliance in Biometric Authentication</h3>
+                            <p class="card-text text-muted mb-4" style="line-height: 1.7;">Storing raw images for facial recognition is a massive liability. The modern standard requires extracting high-dimensional mathematical embeddings and permanently deleting the source image. We discuss how to implement AES-256 encryption at rest for vector databases like Milvus, ensuring that even during a catastrophic server breach, the mathematical representations cannot be reverse-engineered.</p>
+                            <a href="dtr.html" class="fw-bold text-decoration-none border-bottom border-primary pb-1">Read Full Analysis &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Divider -->
         <div class="container">
@@ -141,7 +192,11 @@
                 <span class="badge bg-danger text-white px-3 py-2 rounded-pill mb-4 text-uppercase tracking-wider ms-2 blink-animation"><i class="fas fa-play-circle me-1"></i> Live Interactive Simulator</span>
                 <h1 class="display-4 fw-bold mb-3 text-primary text-start" style="letter-spacing: -1px;">DTR Face
                     Recognition</h1>
-                <p class="lead text-muted mb-5 text-start" style="max-width: 700px; line-height: 1.8;">An enterprise-grade facial recognition system for employee attendance tracking.</p>
+                <div class="text-muted mb-5 text-start" style="max-width: 700px; line-height: 1.8;">
+                    <p class="lead">An enterprise-grade facial recognition system for employee attendance tracking.</p>
+                    <p>This project utilizes advanced Computer Vision models, specifically the DeepFace framework, to deliver accurate and secure identity verification. It handles everything from initial profile registration with demographic extraction to rapid daily time record (DTR) clock-ins, prioritizing speed and minimizing false positives in real-world environments.</p>
+                    <p>Designed with privacy and scalability in mind, the system processes biometrics locally or via a secure backend, ensuring sensitive data remains protected. It showcases how integrating AI directly into an operational workflow can modernize access control and administrative tasks. <a href="dtr.html" class="text-primary fw-bold text-decoration-none">Read the Face Recognition Case Study</a></p>
+                </div>
             </div>
 
             <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card border-primary animate-fade-up delay-100" style="border-width: 2px;">

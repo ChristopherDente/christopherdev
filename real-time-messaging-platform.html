@@ -20,6 +20,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/ChristopherDente.png">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-97JKKLDVCZ"></script>
     <script>
@@ -94,23 +97,28 @@
                 </div>
 
                 <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
+                    <h2 class="fw-bold mb-4 text-primary">Introduction</h2>
+                    <p class="text-muted" style="line-height: 1.8;">Modern applications require seamless, instant communication. The Real-Time Messaging Platform is a scalable, low-latency chat system designed to demonstrate the power of WebSockets over traditional HTTP polling. This case study explores the foundational architecture, security implementations, and the technical challenges of maintaining persistent asynchronous connections at scale.</p>
+                </div>
+
+                <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
                     <h2 class="fw-bold mb-4 text-primary">System Capabilities & Features</h2>
                     <p class="text-muted mb-3">This messaging platform goes beyond simple WebSockets to deliver a production-ready communication experience:</p>
 
-                    <h4 class="fw-bold mt-4 mb-2">1. Low-Latency Real-time Messaging</h4>
+                    <h3 class="fw-bold mt-4 mb-2">1. Low-Latency Real-time Messaging</h3>
                     <p class="text-muted" style="line-height: 1.8;">By leveraging the WebSocket protocol (WSS), the application maintains a persistent, bi-directional connection between the client and server. This drastically reduces overhead compared to HTTP polling, allowing users to send and receive messages instantly. The UI handles asynchronous updates flawlessly, ensuring no dropped messages during high traffic.</p>
 
-                    <h4 class="fw-bold mt-4 mb-2">2. Secure User Authentication</h4>
+                    <h3 class="fw-bold mt-4 mb-2">2. Secure User Authentication</h3>
                     <p class="text-muted" style="line-height: 1.8;">Security is paramount. The platform uses JSON Web Tokens (JWT) for stateless authentication. Upon successful login, the client receives an encrypted token stored securely in HttpOnly cookies, which is then passed alongside the WebSocket handshake to verify the user's identity before any data is transmitted.</p>
                     
-                    <h4 class="fw-bold mt-4 mb-2">3. End-to-End Encryption Architecture (Concept)</h4>
+                    <h3 class="fw-bold mt-4 mb-2">3. End-to-End Encryption Architecture (Concept)</h3>
                     <p class="text-muted" style="line-height: 1.8;">While this open-source version serves as a foundation, the architecture is designed to support the Signal Protocol. Currently, messages are secured in transit via TLS, but the frontend state management allows easy integration of client-side encryption libraries to ensure the server never reads the plain text.</p>
                 </div>
 
                 <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
                     <h2 class="fw-bold mb-4 text-primary">Setup Guide</h2>
 
-                    <h4 class="fw-bold mt-4 mb-3">1. Run the Application</h4>
+                    <h3 class="fw-bold mt-4 mb-3">1. Run the Application</h3>
                     <p class="text-muted mb-3">Follow these instructions to start the chat system locally.</p>
                     <ol class="text-muted mb-4">
                         <li class="mb-3"><strong>Open a terminal in the project folder</strong>.</li>
@@ -122,14 +130,14 @@
                         </li>
                     </ol>
 
-                    <h4 class="fw-bold mt-5 mb-3">2. Usage</h4>
+                    <h3 class="fw-bold mt-5 mb-3">2. Usage</h3>
                     <ol class="text-muted mb-0">
                         <li class="mb-2">Open the application in multiple browser tabs to simulate multiple users.</li>
                         <li class="mb-2">Start sending messages and see them arrive in real time!</li>
                     </ol>
 
                     <div class="mt-5 text-center p-4 bg-light rounded-4 border">
-                        <h4 class="fw-bold text-primary mb-2">🎉 Enjoy and Learn!</h4>
+                        <h3 class="fw-bold text-primary mb-2">🎉 Enjoy and Learn!</h3>
                         <p class="text-muted mb-0">I hope you have fun building, breaking, and learning from this
                             project. Keep experimenting!</p>
                     </div>
@@ -138,26 +146,34 @@
                 <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
                     <h2 class="fw-bold mb-4 text-primary">Architecture Deep Dive</h2>
                     
-                    <h4 class="fw-bold mt-4 mb-3 h5">Local Storage Event Sync (Frontend Simulator)</h4>
+                    <h3 class="fw-bold mt-4 mb-3 h5">Local Storage Event Sync (Frontend Simulator)</h3>
                     <p class="text-muted mb-4" style="line-height: 1.8;">The live simulator at the top of this page demonstrates a fascinating browser capability: cross-tab synchronization using the Web Storage API. When you send a message, it is serialized into JSON (including a unique timestamp and user identifier) and written to the browser's <code>localStorage</code>. Other open tabs actively listen for the <code>'storage'</code> event on the <code>window</code> object. The moment a new message is written to storage, the event fires in all sibling tabs, allowing them to instantly parse the JSON payload and append the message to their chat windows. This creates a completely serverless real-time chat experience for demonstration purposes.</p>
 
-                    <h4 class="fw-bold mt-4 mb-3 h5">WebSocket Production Implementation (Backend)</h4>
+                    <h3 class="fw-bold mt-4 mb-3 h5">WebSocket Production Implementation (Backend)</h3>
                     <p class="text-muted mb-4" style="line-height: 1.8;">In a full production environment, relying on LocalStorage is insufficient since it only syncs tabs within the same browser session. The full open-source repository implements a true bi-directional WebSocket connection. When a client connects, the Node.js/Python server upgrades the HTTP request to a continuous TCP socket. This allows the server to actively push new messages to all connected clients instantly without waiting for them to HTTP poll the server. This reduces network overhead by over 90% and drops message latency to under 50 milliseconds globally.</p>
 
-                    <h4 class="fw-bold mt-4 mb-3 h5">Scaling Considerations</h4>
+                    <h3 class="fw-bold mt-4 mb-3 h5">Scaling Considerations</h3>
                     <p class="text-muted mb-0" style="line-height: 1.8;">As user concurrency grows, a single WebSocket server will hit connection limits. The architecture is designed to scale horizontally using a Pub/Sub layer (typically Redis). When a message is sent to one server instance, it publishes the payload to the Redis channel. All other server instances subscribe to this channel and immediately broadcast the message to their own connected WebSocket clients. This pattern allows infinite horizontal scaling across multiple load-balanced server nodes.</p>
                 </div>
                 
                 <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
+                    <h2 class="fw-bold mb-4 text-primary">Challenges Faced</h2>
+                    <h3 class="fw-bold mt-4 mb-2 h5">Managing Connection State and Dropouts</h3>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">Maintaining a stable WebSocket connection across spotty mobile networks proved difficult. Users would frequently drop connections, leading to missing messages. We solved this by implementing an exponential backoff reconnection strategy on the client side, coupled with a server-side message queue that guarantees delivery once the connection is re-established.</p>
+                    <h3 class="fw-bold mt-4 mb-2 h5">Scaling Beyond a Single Instance</h3>
+                    <p class="text-muted" style="line-height: 1.8;">As traffic grew, a single Node.js instance could not handle the memory overhead of thousands of active TCP sockets. We addressed this by decoupling the messaging state from the process memory and introducing Redis Pub/Sub as a central message broker, allowing us to horizontally scale the WebSocket servers indefinitely.</p>
+                </div>
+
+                <div class="bg-white border rounded-4 shadow-sm p-4 p-md-5 mb-5 premium-card">
                     <h2 class="fw-bold mb-4 text-primary">Frequently Asked Questions (FAQ)</h2>
                     
-                    <h4 class="fw-bold mt-4 mb-2">How scalable is the WebSocket implementation?</h4>
+                    <h3 class="fw-bold mt-4 mb-2">How scalable is the WebSocket implementation?</h3>
                     <p class="text-muted mb-4" style="line-height: 1.8;">The backend is designed to handle thousands of concurrent connections. By using asynchronous event loops (e.g., Python's asyncio or Node.js's cluster module), the server distributes the connection load. For enterprise scaling, you can integrate a Redis Pub/Sub backplane to synchronize messages across multiple server instances.</p>
                     
-                    <h4 class="fw-bold mt-4 mb-2">Can I integrate this into an existing web app?</h4>
+                    <h3 class="fw-bold mt-4 mb-2">Can I integrate this into an existing web app?</h3>
                     <p class="text-muted mb-4" style="line-height: 1.8;">Yes! The frontend is built using standard, framework-agnostic HTML, CSS, and Vanilla JavaScript. The core messaging logic is abstracted into a standalone JS class that you can easily drop into a React, Vue, or Angular application without conflicting with existing code.</p>
                     
-                    <h4 class="fw-bold mt-4 mb-2">How do you handle dropped connections?</h4>
+                    <h3 class="fw-bold mt-4 mb-2">How do you handle dropped connections?</h3>
                     <p class="text-muted mb-4" style="line-height: 1.8;">The frontend implements an exponential backoff reconnection strategy. If a user's internet drops, the client will attempt to reconnect after 1 second, then 2 seconds, 4 seconds, etc., up to a maximum cap. Once reconnected, it queries the backend for any missed message payloads.</p>
                 </div>
             </div>
@@ -169,7 +185,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h4 class="footer-title">ChristopherDev</h4>
+                    <h3 class="footer-title">ChristopherDev</h3>
                     <p class="text-muted mb-4">Projects, Tools & Developer Resources.<br>Built, Shared, Learned.</p>
                     
                 </div>

@@ -305,6 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const camOverlayText = document.getElementById('camOverlayText');
     let detectionInterval;
     let localStream;
+    let isDetecting = false;
 
     if (startCamBtn && webcam && overlay) {
         startCamBtn.addEventListener('click', async () => {
